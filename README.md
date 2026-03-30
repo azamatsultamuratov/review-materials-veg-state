@@ -1,7 +1,7 @@
 README
 
 Title
-Data, metadata, and analysis scripts for a vegetation study
+Data, metadata, and analysis scripts for anonymous peer review
 
 Overview
 This archive contains the processed vegetation-plot dataset, associated metadata, and R scripts used in the analyses. The archived materials support vegetation classification, ordination, diversity analyses, ecological-type interpretation, synoptic summaries, and phylogenetic analyses.
