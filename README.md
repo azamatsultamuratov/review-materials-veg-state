@@ -5,14 +5,14 @@ Data, metadata, and analysis scripts for the manuscript:
 Alternative vegetation states and assembly pathways on the dried Aral Sea bed
 
 Overview
-This archive contains the processed vegetation-plot dataset, associated metadata, and R scripts used in the analyses presented in the manuscript. The materials were prepared for vegetation classification, ordination, diversity analyses, ecological-type interpretation, and phylogenetic analyses.
+This archive contains the processed vegetation-plot dataset, associated metadata, and R scripts used in the analyses presented in the manuscript. The archived materials support vegetation classification, ordination, diversity analyses, ecological-type interpretation, synoptic summaries, and phylogenetic analyses.
 
 Related manuscript
 Alternative vegetation states and assembly pathways on the dried Aral Sea bed
 
 Archive contents
 
-Data and metadata files
+A. Data and metadata files
 
 1. ready_data_AD_DM.csv
 Processed vegetation plot × species matrix used as the main analytical dataset.
@@ -78,6 +78,59 @@ Relationships among files
 - Species columns in ready_data_AD_DM.csv correspond to s_code in df_species_code.csv.
 - gen_df_species_code.csv serves as an auxiliary taxonomic reference for phylogenetic analyses.
 
+B. Scripts
+
+This archive includes 12 main R scripts used to preprocess the data, perform the analyses, and generate derived outputs.
+
+1. Step1_TWINSPAN_Filtering
+Reads the main vegetation matrix, removes empty plots and species, applies frequency filtering, and exports raw and square-root transformed matrices for modified TWINSPAN analyses. The script generates filtered datasets for frequency thresholds of 3, 4, and 5 and retains the frequency ≥ 4 matrix for the main analyses.
+
+2. Step2_Optimal_Clusters
+Evaluates alternative numbers of clusters for modified TWINSPAN using three criteria:
+- number of significant indicator species,
+- minimum cluster size,
+- mean silhouette width.
+The analysis is performed for the full dataset and for annual, perennial, and woody subsets.
+
+3. Step3.2_Sorensen_Similarity
+Calculates within-class Sørensen similarity to assess compositional homogeneity of syntaxa. The script summarizes similarity values across upper, lower, and grouped classification levels and across life-form subsets.
+
+4. Step3_TWINSPAN_Classification_and_Diversity
+Performs the final modified TWINSPAN classification and defines the hierarchical syntaxonomic structure with 6 upper and 8 lower clusters. The script also calculates indicator species, species summaries, dominant species, cluster sizes, and alpha/beta diversity statistics.
+
+5. Step4_Dendrogram_Visualizations
+Reconstructs the modified TWINSPAN hierarchy and exports two diagram types:
+- a ranked cladogram,
+- a heterogeneity-based dendrogram.
+
+6. Step5_NMDS
+Performs three-dimensional NMDS ordination based on species composition, calculates plot scores and centroids, and exports the final ordination graphic with projected ellipses.
+
+7. Step6_DCA
+Performs DCA on the full dataset and on annual, perennial, and woody subsets. The script exports main and appendix ordination graphics, together with site scores and axis summaries.
+
+8. Step7_Richness_Cover_ANOVA
+Calculates plot-level richness and vegetation cover for total vegetation, annuals, perennials, and woody species. The script performs one-way ANOVA across vegetation clusters and exports summary tables and boxplots.
+
+9. Step8_CA
+Performs correspondence analysis using vegetation clusters and ecological-type data from eco_tp.csv. The script generates an interactive CA biplot and exports the corresponding outputs.
+
+10. Step9_synoptic_table
+Constructs synoptic tables using species constancy, fidelity, and cover summaries. The script identifies diagnostic species, companion species, and other non-diagnostic species and exports the final synoptic table and related summaries.
+
+11. Step10_TWINSPAN_TXT_Report
+Exports internal modified TWINSPAN outputs and textual hierarchy reports. This step includes:
+- internal object summaries,
+- hierarchy diagnostics,
+- differential species and pseudospecies exports,
+- reconstructed original-style text hierarchy reports.
+
+12. Step11_Phylogenetic_Diversity
+Performs phylogenetic analyses, including taxonomic matching, tree construction, Faith’s phylogenetic diversity, SES.MPD, and phylogenetic heatmap generation. The script also exports plot-level phylogenetic metrics and cluster-level summaries.
+
+13. Step12_Tanglegram
+Constructs a tanglegram comparing the modified TWINSPAN hierarchy with the phylogenetic tree structure and exports the final comparison graphic.
+
 Purpose of the archived files
 These files were used to:
 - link species codes in the vegetation matrix to taxon names;
@@ -85,47 +138,8 @@ These files were used to:
 - connect vegetation plots with ecological-type information;
 - improve taxonomic matching for phylogenetic analyses;
 - preprocess and filter the vegetation matrix for modified TWINSPAN;
-- generate classification, ordination, diversity, ecological-type, and phylogenetic outputs.
-
-Scripts included
-
-The archive also contains R scripts used for data preprocessing, classification, ordination, diversity analyses, ecological-type analyses, and phylogenetic analyses. The scripts were used to generate the analytical datasets, derived tables, and figures reported in the manuscript.
-
-Main analytical components
-
-1. Data preprocessing and filtering
-The vegetation matrix was cleaned, empty plots and empty species were removed, and frequency-filtered datasets were generated. Matrices filtered at different species-frequency thresholds were created for sensitivity analysis, and square-root transformed versions were exported for modified TWINSPAN classification. :contentReference[oaicite:0]{index=0}
-
-2. Evaluation of classification levels
-Alternative numbers of clusters were evaluated using three criteria:
-- number of significant indicator species,
-- minimum cluster size,
-- mean silhouette width.
-These evaluations were carried out for the full dataset and for annual, perennial, and woody subsets. :contentReference[oaicite:1]{index=1}
-
-3. Final modified TWINSPAN classification
-The scripts produce the final hierarchical classification, including upper and lower cluster levels, cluster membership tables, indicator species tables, dominant species summaries, cluster sizes, and diversity statistics. :contentReference[oaicite:2]{index=2}
-
-4. Within-class compositional homogeneity
-Within-class Sørensen similarity was calculated for upper, lower, and grouped classification levels, including separate summaries for annual, perennial, and woody subsets. :contentReference[oaicite:3]{index=3}
-
-5. Ordination analyses
-The scripts include:
-- three-dimensional NMDS ordination based on species composition,
-- DCA ordinations for the full dataset and life-form subsets,
-- correspondence analysis of vegetation clusters and ecological types using eco_tp.csv. :contentReference[oaicite:4]{index=4}
-
-6. Richness and vegetation cover analyses
-Plot-level species richness and vegetation cover were calculated for total vegetation, annuals, perennials, and woody species, followed by group summaries and one-way ANOVA. :contentReference[oaicite:5]{index=5}
-
-7. Synoptic and diagnostic summaries
-The scripts generate synoptic tables based on species constancy, fidelity, mean cover, and diagnostic species assignment for the lower vegetation clusters. :contentReference[oaicite:6]{index=6}
-
-8. Hierarchy reconstruction and visualization
-The archive includes scripts used to reconstruct and visualize the modified TWINSPAN hierarchy as cladograms, dendrograms, and node-level differential summaries. :contentReference[oaicite:7]{index=7}
-
-9. Phylogenetic analyses
-Phylogenetic workflows include taxonomic matching, tree construction, plot-level phylogenetic diversity metrics, standardized effect sizes of mean pairwise distance, and a phylogenetic heatmap of species occurrence across vegetation clusters. The auxiliary taxonomic file gen_df_species_code.csv was used to improve taxonomic coverage in these analyses. :contentReference[oaicite:8]{index=8}
+- evaluate alternative classification levels;
+- generate classification, ordination, diversity, synoptic, ecological-type, and phylogenetic outputs.
 
 Notes
 - The main vegetation matrix contains plot-level species cover values.
