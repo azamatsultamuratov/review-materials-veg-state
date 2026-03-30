@@ -1,14 +1,13 @@
 README
 
 Title
-Data, metadata, and analysis scripts for the manuscript:
-Alternative vegetation states and assembly pathways on the dried Aral Sea bed
+Data, metadata, and analysis scripts for a vegetation study
 
 Overview
-This archive contains the processed vegetation-plot dataset, associated metadata, and R scripts used in the analyses presented in the manuscript. The archived materials support vegetation classification, ordination, diversity analyses, ecological-type interpretation, synoptic summaries, and phylogenetic analyses.
+This archive contains the processed vegetation-plot dataset, associated metadata, and R scripts used in the analyses. The archived materials support vegetation classification, ordination, diversity analyses, ecological-type interpretation, synoptic summaries, and phylogenetic analyses.
 
 Related manuscript
-Alternative vegetation states and assembly pathways on the dried Aral Sea bed
+Details withheld for anonymous peer review.
 
 Archive contents
 
